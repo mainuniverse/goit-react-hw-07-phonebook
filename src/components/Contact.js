@@ -5,7 +5,8 @@ import {
   useDeleteContactByIdMutation,
   useGetContactsQuery,
 } from "../services/api";
-
+import s from './components.module.css';
+ 
 const getVisibleContacts = (contacts, filter) => {
   const normalizedFilter = filter.toLowerCase().trim();
 
@@ -21,16 +22,12 @@ export const Contact = () => {
   const filter = useSelector((state) => state.filter);
   return (
     <>
-      {error ? (
-        <>Oh no, there was an error</>
-      ) : isLoading ? (
-        <>Loading...</>
-      ) : data ? (
+      {error ? (<>Error</>) : isLoading ? (<>Loading...</>) : data ? (
         <>
           {getVisibleContacts(data, filter).map(({ id, name, phone }) => (
-            <li key={id}>
+            <li key={id} className={s.contactItem}>
               {name} : {phone}
-              <button type="button" onClick={() => deleteContact(id)}>
+              <button className={s.buttonDelete} type="button" onClick={() => deleteContact(id)}>
                 Delete
               </button>
             </li>

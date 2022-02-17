@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-//https://mockapi.io/clone/62096b516df46f0017f4c503
+//https://62096b516df46f0017f4c502.mockapi.io/api/v1
 
-const phonebookApi = createApi({
+const phonebookApiList = createApi({
   reducerPath: "contacts",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://62096b516df46f0017f4c502.mockapi.io/api/v1",
@@ -30,15 +30,6 @@ const phonebookApi = createApi({
   }),
 });
 
-const {
-  useGetContactsQuery,
-  useDeleteContactByIdMutation,
-  usePostContactMutation,
-} = phonebookApi;
+const { useGetContactsQuery, useDeleteContactByIdMutation, usePostContactMutation, } = phonebookApiList;
 
-export {
-  phonebookApi,
-  useGetContactsQuery,
-  useDeleteContactByIdMutation,
-  usePostContactMutation,
-};
+export {phonebookApiList, useGetContactsQuery, useDeleteContactByIdMutation,  usePostContactMutation,};
