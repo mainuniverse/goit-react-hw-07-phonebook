@@ -1,35 +1,41 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 //https://62096b516df46f0017f4c502.mockapi.io/api/v1
 
 const phonebookApiList = createApi({
-  reducerPath: "contacts",
+  reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://62096b516df46f0017f4c502.mockapi.io/api/v1",
+    baseUrl: 'https://62096b516df46f0017f4c502.mockapi.io/api/v1',
   }),
-  tagTypes: ["Contacts"],
-  endpoints: (builder) => ({
+  tagTypes: ['Contacts'],
+  endpoints: builder => ({
     getContacts: builder.query({
       query: () => `contacts/`,
-      providesTags: ["Contacts"],
+      providesTags: ['Contacts'],
     }),
     deleteContactById: builder.mutation({
-      query: (id) => ({
+      query: id => ({
         url: `contacts/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
       }),
-      invalidatesTags: ["Contacts"],
+      invalidatesTags: ['Contacts'],
     }),
     postContact: builder.mutation({
-      query: (contact) => ({
-        url: "contacts/",
-        method: "POST",
+      query: contact => ({
+        url: 'contacts/',
+        method: 'POST',
         body: contact,
       }),
-      invalidatesTags: ["Contacts"],
+      invalidatesTags: ['Contacts'],
     }),
   }),
 });
 
-const { useGetContactsQuery, useDeleteContactByIdMutation, usePostContactMutation, } = phonebookApiList;
+const { useGetContactsQuery, useDeleteContactByIdMutation, usePostContactMutation } =
+  phonebookApiList;
 
-export {phonebookApiList, useGetContactsQuery, useDeleteContactByIdMutation,  usePostContactMutation,};
+export {
+  phonebookApiList,
+  useGetContactsQuery,
+  useDeleteContactByIdMutation,
+  usePostContactMutation,
+};
