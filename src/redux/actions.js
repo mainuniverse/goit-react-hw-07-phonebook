@@ -1,4 +1,10 @@
-// import { createAction } from '@reduxjs/toolkit';
+
+import { createAction } from "@reduxjs/toolkit";
+
+const changeFilter = createAction("filter/Filter");
+
+export { changeFilter };
+
 // import shortid from 'shortid';
 
 // export const deleteContact = createAction('contact/delete');
@@ -10,9 +16,3 @@
 //         number: data.number,
 //     },
 // }));
-
-import { createAction } from "@reduxjs/toolkit";
-
-const changeFilter = createAction("filter/Filter");
-
-export { changeFilter };

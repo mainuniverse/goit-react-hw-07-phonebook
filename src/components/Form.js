@@ -1,10 +1,3 @@
-// import React, { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import shortid from 'shortid';
-// import { toast } from 'react-toastify';
-// import { addContact } from './../redux/actions';
-// import { getContacts } from './../redux/selectors';
-
 import React from "react";
 import 'react-toastify/dist/ReactToastify.css';
 //import s from './components.module.css';
@@ -41,7 +34,7 @@ export const Form = () => {
         Number
         <input
           type="tel"
-          name="number"
+          name="add correct number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="check number"
           placeholder="add phone "
