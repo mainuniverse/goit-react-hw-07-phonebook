@@ -1,8 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { changeFilter } from "./actions";
+import { filterContacts } from "./actions";
 
 const filterReducer = createReducer("", {
-  [changeFilter]: (state, { payload }) => payload,
+  [filterContacts]: (state, { payload }) => payload,
 });
 
 export { filterReducer };
